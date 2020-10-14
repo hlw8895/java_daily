@@ -1,6 +1,5 @@
 package test.demo.src;
 
-
 import java.util.*;
 
 public class App2 {
@@ -8,16 +7,14 @@ public class App2 {
         String str[] = { "flower", "flow", "flight" };
         String res = str[0];
         int i = 1;
-        while(i<str.length)
-        {
-            while(str[i].indexOf(res)!=0)
-            {
+        while (i < str.length) {
+            while (str[i].indexOf(res) != 0) {
                 res = res.substring(0, res.length() - 1);
             }
             i++;
         }
         // String in = Solution.longestCommonPrefix(str);
-       //System.out.println("hell word");
+        // System.out.println("hell word");
         System.out.println(res);
 
     }
@@ -40,7 +37,7 @@ class Solution1 {
         }
         return ans;
     }
-    
+
     public static String longestCommonPrefix(String[] strs) {
         if (strs == null || strs.length == 0)
             return "";
@@ -54,6 +51,35 @@ class Solution1 {
         }
         return res;
 
+    }
+
+    public void setZeroes(int[][] matrix) {
+        boolean row[]=new boolean [matrix.length];
+        boolean  col []=new boolean[matrix[0].length];
+        for (int i = 0; i < matrix.length; ++i) {
+            for (int j = 0; j < matrix[0].length; ++j) {
+                if (matrix[i][j] == 0) {
+                    row[i] = true;
+                    col[j] = true;
+
+                }
+            }
+        }
+        for (int i = 0; i < row.length; i++) {
+            if (row[i]) {
+                for (int j = 0; j < matrix[i].length; ++j) {
+                    matrix[i][j] = 0;
+                }
+            }
+        }
+        for (int i = 0; i < col.length; i++) {
+            if (col[i]) {
+                for (int j = 0; j < matrix.length; ++j) {
+                    matrix[j][i] = 0;
+                }
+            }
+        }
+        
     }
 
 }
